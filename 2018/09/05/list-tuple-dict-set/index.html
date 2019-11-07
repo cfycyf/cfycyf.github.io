@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>list, tuple, dict, set | Boreas</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="python中列表(list)，元组(tuple)，字典(dict)，集合(set)的区别Django 整理  列表(list)1.任意对象的有序集合列表是一组任意类型的值，按照一定顺序组合而成的2.通过偏移读取组成列表的值叫做元素(Elements)。每一个元素被标识一个索引，第一个索引是0，序列的功能都能实现3.可变长度，异构以及任意嵌套列表中的元素可以是任意类型，甚至是列表类型，也就是说列表">
+<meta name="keywords" content="面试必看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="list, tuple, dict, set">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;09&#x2F;05&#x2F;list-tuple-dict-set&#x2F;index.html">
+<meta property="og:site_name" content="Boreas">
+<meta property="og:description" content="python中列表(list)，元组(tuple)，字典(dict)，集合(set)的区别Django 整理  列表(list)1.任意对象的有序集合列表是一组任意类型的值，按照一定顺序组合而成的2.通过偏移读取组成列表的值叫做元素(Elements)。每一个元素被标识一个索引，第一个索引是0，序列的功能都能实现3.可变长度，异构以及任意嵌套列表中的元素可以是任意类型，甚至是列表类型，也就是说列表">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-07T01:20:16.410Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Boreas" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/myhead.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/myhead.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Taylor</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间轴</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+							<li><a href="/tags/">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Taylor</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/myhead.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Taylor</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间轴</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+					<li><a href="/tags/">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-list-tuple-dict-set" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/05/list-tuple-dict-set/" class="article-date">
+  	<time datetime="2018-09-05T02:14:48.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      list, tuple, dict, set
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E7%9C%8B/" rel="tag">面试必看</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/pyhton/">pyhton</a><a class="article-category-link" href="/categories/pyhton/django/">django</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python中列表-list-，元组-tuple-，字典-dict-，集合-set-的区别"><a href="#python中列表-list-，元组-tuple-，字典-dict-，集合-set-的区别" class="headerlink" title="python中列表(list)，元组(tuple)，字典(dict)，集合(set)的区别"></a>python中列表(list)，元组(tuple)，字典(dict)，集合(set)的区别</h1><p>Django 整理</p>
+<hr>
+<h2 id="列表-list"><a href="#列表-list" class="headerlink" title="列表(list)"></a>列表(list)</h2><p>1.任意对象的有序集合<br>列表是一组任意类型的值，按照一定顺序组合而成的<br>2.通过偏移读取<br>组成列表的值叫做元素(Elements)。每一个元素被标识一个索引，第一个索引是0，序列的功能都能实现<br>3.<strong>可变长度，异构以及任意嵌套</strong><br>列表中的元素可以是任意类型，甚至是列表类型，也就是说列表可以嵌套<br>4.<strong>可变的序列</strong><br>支持索引、切片、合并、删除等等操作，它们都是在原处进行修改列表<br>5.对象引用数组<br>列表可以当成普通的数组，每当用到引用时，Python总是会将这个引用指向一个对象，所以程序只需处理对象的操作。当把一个对象赋给一个数据结构元素或变量名时，Python总是会存储对象的引用，而不是对象的一个拷贝。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可用list()函数建立</span></span><br><span class="line">list1 = list((<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment"># 用[]建立，可包含不同数据类型</span></span><br><span class="line">list2 = [<span class="number">1</span>, <span class="number">3</span>, <span class="string">'hello'</span>, <span class="number">3.5</span>]</span><br><span class="line"><span class="comment"># 可用下标访问</span></span><br><span class="line">print(list1[<span class="number">1</span>])</span><br><span class="line"><span class="comment"># 切片</span></span><br><span class="line">print(list2[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line">[<span class="number">3</span>, <span class="string">'hello'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="list-方法"><a href="#list-方法" class="headerlink" title="list 方法"></a>list 方法</h3><blockquote>
+<p>操作     解释<br>list.append():     追加成员<br>list.count(x):     计算列表中参数x出现的次数<br>list.extend(L):     向列表中追加另一个列表L<br>list.index(x):     获得参数x在列表中的位置<br>list.insert():     向列表中插入数据<br>list.pop():     删除列表中的成员（通过下标删除）<br>list.remove():     删除列表中的成员（直接删除）<br>list.reverse():     将列表中成员的顺序颠倒<br>list.sort():     将列表中成员排序</p>
+</blockquote>
+<h2 id="元组-tuple"><a href="#元组-tuple" class="headerlink" title="元组(tuple)"></a>元组(tuple)</h2><p>1.任意对象的有序集合<br>与列表相同<br>2.通过偏移存取<br>与列表相同<br>3.属于不可变序列类型<br>类似于字符串，但元组是不可变的，不支持在列表中任何原处修改操作，不支持任何方法调用<br>4.<strong>固定长度、异构、任意嵌套</strong><br>固定长度即元组不可变，在不被拷贝的情况下长度固定，其他同列表<br>5.对象引用的数组<br>与列表相似，元祖是对象引用的数组</p>
+<p>和list相比<br>1.比列表操作速度快<br>2.对数据“写保护“<br>3.可用于字符串格式化中<br>4.可作为字典的key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可用tuple()函数创建</span></span><br><span class="line">tuple1 = tuple([<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"><span class="comment"># 用()建立，可包含不同数据类型</span></span><br><span class="line">tuple2 = (<span class="number">1</span>, <span class="number">3</span>, <span class="string">'hello'</span>, <span class="number">3.5</span>)</span><br><span class="line"><span class="comment"># 可用下标访问</span></span><br><span class="line">print(tuple1[<span class="number">1</span>])</span><br><span class="line"><span class="comment"># 可切片</span></span><br><span class="line">print(tuple2[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line"><span class="comment"># 不可以修改元素</span></span><br><span class="line">tuple1[<span class="number">1</span>] = <span class="number">10</span></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line">(<span class="number">3</span>, <span class="string">'hello'</span>)</span><br><span class="line">TypeError: <span class="string">'tuple'</span> object does <span class="keyword">not</span> support item assignment</span><br></pre></td></tr></table></figure>
+<h3 id="tuple-方法"><a href="#tuple-方法" class="headerlink" title="tuple 方法"></a>tuple 方法</h3><blockquote>
+<p>操作     解释<br>cmp(tuple1, tuple2)     比较两个元组元素。<br>len(tuple)     计算元组元素个数。<br>max(tuple)     返回元组中元素最大值。<br>min(tuple)     返回元组中元素最小值。<br>tuple(seq)     将列表转换为元组。</p>
+</blockquote>
+<h2 id="字典-dict"><a href="#字典-dict" class="headerlink" title="字典 (dict)"></a>字典 (dict)</h2><p>1.通过键而不是偏移量来读取<br>字典就是一个关联数组，是一个通过关键字索引的对象的集合，使用键-值（key-value）进行存储，查找速度快<br>2.任意对象的无序集合<br>字典中的项没有特定顺序，以“键”为象征<br>3.可变长、异构、任意嵌套<br>同列表，嵌套可以包含列表和其他的字典等<br>4.属于可变映射类型<br>因为是无序，故不能进行序列操作，但可以在远处修改，通过键映射到值。字典是唯一内置的映射类型（键映射到值的对象）<br>5.对象引用表<br>字典存储的是对象引用，不是拷贝，和列表一样。字典的key是不能变的，list不能作为key，字符串、元祖、整数等都可以</p>
+<p><strong>和list比较</strong>，dict有以下几个特点：<br>1<strong>.查找和插入的速度极快，不会随着key的增加而增加</strong><br>2.<strong>需要占用大量的内存，内存浪费多</strong><br>而list相反：<br>1.查找和插入的时间随着元素的增加而增加<br>2.占用空间小，浪费内存很少<br>所以，<strong>dict是用空间来换取时间的一种方法</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用dict()函数创建</span></span><br><span class="line">dict1 = dict([(<span class="string">'name'</span>, <span class="string">'kyda'</span>), (<span class="string">'e'</span>, <span class="number">10</span>)])</span><br><span class="line"><span class="comment"># 用&#123;&#125;创建</span></span><br><span class="line">dict2 = &#123;<span class="string">'name'</span>: <span class="string">'lin'</span>, <span class="string">'age'</span>: <span class="number">21</span>&#125;</span><br><span class="line">print(dict1)</span><br><span class="line"><span class="comment"># 使用键（key）来访问元素</span></span><br><span class="line">print(dict2[<span class="string">'name'</span>])</span><br><span class="line"><span class="comment"># 使用键（key）来访问元素，并修改元素的值</span></span><br><span class="line">dict2[<span class="string">'age'</span>] = <span class="number">23</span></span><br><span class="line">print(dict2)</span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">(<span class="number">3</span>, <span class="string">'hello'</span>)</span><br><span class="line">&#123;<span class="string">'name'</span>: <span class="string">'kyda'</span>, <span class="string">'age'</span>: <span class="number">10</span>&#125;</span><br><span class="line">lin</span><br><span class="line">&#123;<span class="string">'name'</span>: <span class="string">'lin'</span>, <span class="string">'age'</span>: <span class="number">23</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="dict-方法"><a href="#dict-方法" class="headerlink" title="dict 方法"></a>dict 方法</h3><blockquote>
+<p>操作     解释<br>adict.keys()     返回一个包含字典所有KEY的列表；<br>adict.values()     返回一个包含字典所有value的列表；<br>adict.items()     返回一个包含所有（键，值）元祖的列表；<br>adict.clear()     删除字典中的所有项或元素；<br>adict.copy()     返回一个字典浅拷贝的副本；<br>adict.fromkeys(seq, val=None)     创建并返回一个新字典，以seq中的元素做该字典的键，val做该字典中所有键对应的初始值（默认为None）；<br>adict.get(key, default = None)     返回字典中key对应的值，若key不存在字典中，则返回default的值（default默认为None）；<br>adict.has_key(key)     如果key在字典中，返回True，否则返回False。 现在用 in 、 not in；<br>adict.iteritems() adict.iterkeys() adict.itervalues()     与它们对应的非迭代方法一样，不同的是它们返回一个迭代子，而不是一个列表；<br>adict.pop(key[,default])     和get方法相似。如果字典中存在key，删除并返回key对应的vuale；如果key不存在，且没有给出default的值，则引发keyerror异常；<br>adict.setdefault(key, default=None)     和set()方法相似，但如果字典中不存在Key键，由 adict[key] = default 为它赋值；<br>adict.update(bdict)     将字典bdict的键值对添加到字典adict中。</p>
+</blockquote>
+<h2 id="集合-set"><a href="#集合-set" class="headerlink" title="集合(set)"></a>集合(set)</h2><p>1.是一组key的集合，但不存储value，并且key不能重复<br>创建一个set，需要提供一个list作为输入集合,s = set([1,2,3]),注意，传入的参数 [1, 2, 3] 是一个list，而显示的 set([1, 2, 3]) 只是告诉你这个set内部有1，2，3这3个元素，显示的[ ]不表示这是一个list<br>2.重复元素在set中自动被过滤<br>set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作</p>
+<p>还有一种集合是forzenset( )，是冻结的集合，它是不可变的，存在哈希值，好处是它可以作为字典的key，也可以作为其它集合的元素。缺点是一旦创建便不能更改，没有add，remove方法</p>
+<p>和dict对比<br>1.set和dict的唯一区别仅在于<strong>没有存储对应的value</strong><br>2.set的原理和dict一样，同样不可以放入可变对象，因为无法判断两个可变对象是否相等，也就无法保证set内部<strong>“不会有重复元素”</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两种方法创建</span></span><br><span class="line">set1 = set(<span class="string">'kydaa'</span>)</span><br><span class="line">set2 = &#123;<span class="string">'abc'</span>, <span class="string">'jaja'</span>, <span class="string">'abc'</span>, <span class="string">'kyda'</span>&#125;</span><br><span class="line">print(set1)</span><br><span class="line">print(set2)</span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">&#123;<span class="string">'a'</span>, <span class="string">'y'</span>, <span class="string">'d'</span>, <span class="string">'k'</span>&#125;</span><br><span class="line">&#123;<span class="string">'jaja'</span>, <span class="string">'abc'</span>, <span class="string">'kyda'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="set方法"><a href="#set方法" class="headerlink" title="set方法:"></a>set方法:</h3><blockquote>
+<p>操作     解释<br>s.issubset(t)，s &lt;= t     测试是否 s 中的每一个元素都在 t 中<br>s.issuperset(t)，s &gt;= t     测试是否 t 中的每一个元素都在 s 中<br>s.union(t)，s | t     返回一个新的 set 包含 s 和 t 中的每一个元素<br>s.intersection(t)，s &amp; t     返回一个新的 set 包含 s 和 t 中的公共元素<br>s.difference(t),s - t     返回一个新的 set 包含 s 中有但是 t 中没有的元素<br>s.symmetric_difference(t),s ^ t     返回一个新的 set 包含 s 和 t 中不重复的元素<br>s.copy()     返回 set “s”的一个浅复制</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="列表和元组"><a href="#列表和元组" class="headerlink" title="列表和元组"></a>列表和元组</h3><p>列表和元组有很多相似的地方，操作也差不多。不过<strong>列表是可变序列，元组为不可变序列</strong>。也就是说列表主要用于对象长度不可知的情况下，而元组用于对象长度已知的情况下，而且<strong>元组元素一旦创建变就不可修改</strong>。<br>例如我们在打开一个文本时，并不知道里面有多少行文字，所以用列表来保存。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(f.readlines())</span><br><span class="line"><span class="comment"># 结果：</span></span><br><span class="line"><span class="comment"># ['hello world\n', 'hi kyda\n', 'this is my program']</span></span><br></pre></td></tr></table></figure>
+<p> 而我们在储存一个人的信息（名字，年龄，性别，假定只需要这三种信息，所以对象长度为3）的时候，就可以用元组来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id = (<span class="string">'kyda'</span>, <span class="number">19</span>, <span class="string">'man'</span>)</span><br><span class="line">print(id)</span><br><span class="line"><span class="comment"># 结果：</span></span><br><span class="line"><span class="comment"># ('kyda', 19, 'man')</span></span><br></pre></td></tr></table></figure>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>字典主要应用于需要对元素进行标记的对象，这样在使用的时候便不必记住元素列表中或者元组中的位置，只需要利用键来进行访问对象中相应的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id = &#123;<span class="string">'name'</span>: <span class="string">'kyda'</span>, <span class="string">'age'</span>: <span class="number">19</span>, ‘sex<span class="string">': '</span>man<span class="string">')</span></span><br><span class="line"><span class="string">print(id['</span>age<span class="string">'])</span></span><br><span class="line"><span class="string"># 结果：</span></span><br><span class="line"><span class="string"># 19</span></span><br></pre></td></tr></table></figure>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合中的元素不可重复的特点使它被拿来去重。比如我在爬去糗事百科全站的文章链接(存放与列表中）的时候，不可避免的会遇到重复的链接。这是我们只需将列表转换为集合便能有效的去除重复部分。<br>比如上面的例程。</p>
+<p>在海量数据中查找元素时，最好将数据创建为字典，或者是集合</p>
+<p>这是由于字典和集合背后的查找原理是散列（哈希）表。由于散列表在查找元素时的时间复杂度基本是O(1),这使查找时间很短。</p>
+<h2 id="灵活运用推导来创建"><a href="#灵活运用推导来创建" class="headerlink" title="灵活运用推导来创建"></a>灵活运用推导来创建</h2><p>推导可以说是python最灵活的特性之一。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list </span></span><br><span class="line">list1 = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典</span></span><br><span class="line"><span class="comment"># 用双重推导（笛卡尔积）来创建</span></span><br><span class="line">list1 = [<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>]</span><br><span class="line">list2 = [<span class="string">'kyda'</span>, <span class="number">19</span>, <span class="string">'man'</span>]</span><br><span class="line">ID = &#123;x: y <span class="keyword">for</span> x <span class="keyword">in</span> list1 <span class="keyword">for</span> y <span class="keyword">in</span> list2&#125;</span><br><span class="line">print(ID)</span><br><span class="line"><span class="comment"># &#123;'name': 'man', 'age': 'man', 'sex': 'man'&#125;</span></span><br><span class="line"><span class="comment"># 还可以运用zip()函数简化</span></span><br><span class="line">ID = &#123;x: y <span class="keyword">for</span> x, y <span class="keyword">in</span> zip(list1, list2)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表和元组也可以运用双重推导（笛卡尔积）来创建。比如我们要生成一个二维坐标数组：</span></span><br><span class="line">coordinate = [(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>) <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">2</span>)]</span><br><span class="line">print(coordinate)</span><br><span class="line"><span class="comment"># [(0, 0), (0, 1), (1, 0), (1, 1)]</span></span><br></pre></td></tr></table></figure>
+<h2 id="枚举元素"><a href="#枚举元素" class="headerlink" title="枚举元素"></a>枚举元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于列表， 集合，集合都可以运用for…in…来进行枚举</span></span><br><span class="line">set1 = &#123;<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> tmp <span class="keyword">in</span> set1:</span><br><span class="line">    print(tmp)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="comment"># name</span></span><br><span class="line"><span class="comment"># age</span></span><br><span class="line"><span class="comment"># sex</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 有时候，我们需要用到元素的索引：</span></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> tmp <span class="keyword">in</span> set1:</span><br><span class="line">    print(tmp, index)</span><br><span class="line">    index += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#  这样写太过于冗余，我可以用enumerate()函数来帮组我们实现：</span></span><br><span class="line"><span class="keyword">for</span> index, tmp <span class="keyword">in</span> enumerate(set1):</span><br><span class="line">    print(tmp, index)</span><br></pre></td></tr></table></figure>
+<p> 而对于字典，我们要枚举时就有点麻烦。不过还好，字典的方法中有三个方法帮助我们解决这个问题：</p>
+<blockquote>
+<p>操作     解释<br>adict.keys()     返回一个包含字典所有KEY的列表；<br>adict.values()     返回一个包含字典所有value的列表；<br>adict.items()     返回一个包含所有（键，值）元祖的列表；</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ist1 = [<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>]</span><br><span class="line">list2 = [<span class="string">'kyda'</span>, <span class="number">19</span>, <span class="string">'man'</span>]</span><br><span class="line"> </span><br><span class="line">ID = &#123;x: y <span class="keyword">for</span> x, y <span class="keyword">in</span> zip(list1, list2)&#125;</span><br><span class="line"><span class="keyword">for</span> tmp <span class="keyword">in</span> ID.items():</span><br><span class="line">    print(tmp)</span><br><span class="line"><span class="comment"># 结果：</span></span><br><span class="line"><span class="comment"># ('age', 19)</span></span><br><span class="line"><span class="comment"># ('sex', 'man')</span></span><br><span class="line"><span class="comment"># ('name', 'kyda')</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/08/process-status/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          process-status
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/02/redis-server/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis-server</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2019 Taylor
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a> 
+        </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		particlesjs:false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+  </div>
+</body>
+</html>
